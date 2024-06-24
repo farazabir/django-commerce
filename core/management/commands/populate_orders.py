@@ -10,7 +10,7 @@ class Command(BaseCommand):
         faker = Faker()
         for _ in range(30):
             order = Order.objects.create(
-                user_id=20,
+                user_id=1,
                 code='code',
                 ambassador_email='a@a.com',
                 first_name=faker.first_name(),
