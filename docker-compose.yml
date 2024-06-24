@@ -1,0 +1,25 @@
+services:
+  backend:
+    build: .
+    volumes:
+      - .:/backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 12345
+    volumes:
+      - .dbdata:/var/lib/postgres
+    ports:
+      - "5544:5432"
+  
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
